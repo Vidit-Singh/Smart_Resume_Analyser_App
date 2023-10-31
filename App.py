@@ -379,11 +379,11 @@ def run():
                 st.video(resume_vid)
 
                 ## Interview Preparation Video
-                st.header("**Bonus Video for Interview👨‍💼 Tips💡**")
-                interview_vid = random.choice(interview_videos)
-                int_vid_title = fetch_yt_video(interview_vid)
-                st.subheader("✅ **" + int_vid_title + "**")
-                st.video(interview_vid)
+                # st.header("**Bonus Video for Interview👨‍💼 Tips💡**")
+                # interview_vid = random.choice(interview_videos)
+                # int_vid_title = fetch_yt_video(interview_vid)
+                # st.subheader("✅ **" + int_vid_title + "**")
+                # st.video(interview_vid)
 
                 connection.commit()
             else:
