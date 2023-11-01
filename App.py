@@ -22,9 +22,19 @@ import pafy
 import plotly.express as px
 import youtube_dl
 
+# def fetch_yt_video(link):
+#     video = pafy.new(link)
+#     return video.title
+import pafy
+
 def fetch_yt_video(link):
-    video = pafy.new(link)
-    return video.title
+    try:
+        video = pafy.new(link)
+        return video.title
+    except Exception as e:
+        # Handle the exception, e.g., print an error message or return a default title.
+        print("Error fetching video information:", e)
+        return "Unknown Video"
 
 
 def get_table_download_link(df, filename, text):
@@ -379,11 +389,11 @@ def run():
                 st.video(resume_vid)
 
                 ## Interview Preparation Video
-                # st.header("**Bonus Video for Interview👨‍💼 Tips💡**")
-                # interview_vid = random.choice(interview_videos)
-                # int_vid_title = fetch_yt_video(interview_vid)
-                # st.subheader("✅ **" + int_vid_title + "**")
-                # st.video(interview_vid)
+                st.header("**Bonus Video for Interview👨‍💼 Tips💡**")
+                interview_vid = random.choice(interview_videos)
+                int_vid_title = fetch_yt_video(interview_vid)
+                st.subheader("✅ **" + int_vid_title + "**")
+                st.video(interview_vid)
 
                 connection.commit()
             else:
